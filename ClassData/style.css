@@ -1,0 +1,62 @@
+.tophead .funcbtn {
+    margin-left: auto;
+    display: table;
+}
+.tophead .funcbtn li {
+    display: inline-block;
+}
+.classdata {
+    margin-top: 5%;
+}
+.tophead .funcbtn li+li {
+    margin-left: 20px;
+}
+.tophead .funcbtn li a {
+    background: #635050;
+    padding: 10px 19px;
+    text-decoration: none;
+    width: 131px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+}
+.tophead .funcbtn li {
+    display: inline-block;
+}
+
+.addclassform {
+    width: 100%;
+    padding: 0;
+    background: #eee;
+    transition: .4s ease;
+    transform: scaleY(0);
+    height: 0;
+}
+.addclassform.clickedvmro {
+    height: 100%;
+    transform: scaleY(1);
+    transition: .4s ease;
+    padding:50px 25px;
+}
+.form-group {
+    display: flex;
+    column-gap: 25px;
+}
+input.btn.btn-info {
+    padding: 8px 35px;
+    text-transform: capitalize;
+}
+.main_table {
+    margin: 20px 0;
+    background: linear-gradient(45deg, #51a9bb, #0dcaf09e);
+    padding: 50px 25px;
+}
+
+table tbody button {
+    background: red;
+    border: none;
+    width: 105px;
+    padding: 6px;
+    color: #fff;
+}
