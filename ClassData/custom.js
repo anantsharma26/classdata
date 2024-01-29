@@ -25,3 +25,8 @@ addnewform.addEventListener("submit",(e)=>{
     <td><button id="del" class="btn btn-danger">Delete</button></td>`;
 })
 
+mainTable.addEventListener("click",(e)=>{
+    if(e.target.classList.contains("btn-danger")){
+        e.target.parentNode.parentNode.remove();
+    }
+})
