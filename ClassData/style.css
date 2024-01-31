@@ -24,8 +24,7 @@
 .tophead .funcbtn li {
     display: inline-block;
 }
-
-.addclassform {
+.addclassform, .editclassform {
     width: 100%;
     padding: 0;
     background: #eee;
@@ -33,7 +32,7 @@
     transform: scaleY(0);
     height: 0;
 }
-.addclassform.clickedvmro {
+.addclassform.clickedvmro, .editclassform.clickedvmro{
     height: 100%;
     transform: scaleY(1);
     transition: .4s ease;
