@@ -19,8 +19,6 @@ addclassbtn.addEventListener("click",(e)=>{
     classform.classList.add("clickedvmro");
 })
 
-
-
 mainTable.addEventListener("click",(e)=>{
     if(e.target.classList.contains("btn-danger")){
         e.target.parentNode.parentNode.remove();

@@ -24,7 +24,7 @@
 .tophead .funcbtn li {
     display: inline-block;
 }
-.addclassform, .editclassform {
+.addclassform, .editclassform, .addstudentform, .editstudentform {
     width: 100%;
     padding: 0;
     background: #eee;
@@ -32,7 +32,7 @@
     transform: scaleY(0);
     height: 0;
 }
-.addclassform.clickedvmro, .editclassform.clickedvmro{
+.addclassform.clickedvmro, .editclassform.clickedvmro, .addstudentform.clickedvmro, .editstudentform.clickedvmro{
     height: 100%;
     transform: scaleY(1);
     transition: .4s ease;
@@ -46,10 +46,15 @@ input.btn.btn-info {
     padding: 8px 35px;
     text-transform: capitalize;
 }
-.main_table {
+.main_table,.student_table {
     margin: 20px 0;
     background: linear-gradient(45deg, #51a9bb, #0dcaf09e);
     padding: 50px 25px;
+}
+.main_table h3,.student_table h3 {
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #fff;
 }
 
 table tbody button {
