@@ -12,7 +12,11 @@ const editId = document.querySelector("#editid");
 
 
 
-const newdata = [];
+const newdata = [{className:"Class1",classId:45,studentno:0,}];
+
+addtableData();
+
+
 
 addclassbtn.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -41,10 +45,20 @@ function addtableData(){
 addnewform.addEventListener("submit",(e)=>{
     e.preventDefault();
     const namedata =  classname.value;
-    const nameid =  classid.value;
+    const nameid =  classid.value; 
+    if(namedata===""||namedata.length<=3){
+        classname.style.border = "1px solid red";
+        return false;
+    }
+
+    if(nameid===""||nameid.length<=5){
+        classid.style.border = "1px solid red";
+        return false;
+    }
+
     newdata.push({className:namedata,classId:nameid,studentno:0,});
     classname.value = "";
-    classid.value = "";   
+    classid.value = "";  
     addtableData();
     let editbtn = document.querySelectorAll(".editbtn");
     editbtn.forEach(function(elem) {
@@ -57,11 +71,18 @@ addnewform.addEventListener("submit",(e)=>{
         editId.value = newdata[index].classId;
         editform.classList.add("clickedvmro");
     });
-    
 });
 
 });
 
+
+// function validateform(){
+//     for(validate of newdata){
+//         if(validate.className===""){
+//             return false;       
+//         }
+//     }
+// }
 
 
 editformclass.addEventListener("submit",(e)=>{
