@@ -87,4 +87,8 @@ input.warning{
 }
 .login input {
     margin: 5px 0;
+    padding: 10px;
+}
+body {
+    background: #f5f5f5;
 }
