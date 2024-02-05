@@ -33,6 +33,32 @@ addstudentform.addEventListener("submit",(e)=>{
     const studentMail = stMail.value;
     const studentPass = stPass.value;
     const stclassID = stclid.value;
+    if(studentName === "" || studentName.length <= 3){
+        stName.classList.add("warning");
+        return false;
+    }
+    stName.classList.remove("warning");
+    if(studentId === "" || studentId.length <= 5){
+        stId.classList.add("warning");
+        return false;
+    }
+    stId.classList.remove("warning");
+    if(studentMail === ""){
+        stMail.classList.add("warning");
+        return false;
+    }
+    stMail.classList.remove("warning");
+    if(studentPass === "" || studentPass.length <= 7 || studentPass.search(/[0-9]/) == -1 || 
+    studentPass.search(/[@]/) == -1 ){
+        stPass.classList.add("warning");
+        return false;
+    }
+    stPass.classList.remove("warning");
+    if(stclassID === "" || stclassID.length <= 4){
+        stclid.classList.add("warning");
+        return false;
+    }
+    stclid.classList.remove("warning");
     studentData.push({stuName:studentName,stuId:studentId,
         stuRoll:studentRoll,stuMail:studentMail,stuPass:studentPass,
         stuclId:stclassID});   

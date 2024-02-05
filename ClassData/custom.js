@@ -90,15 +90,15 @@ addnewform.addEventListener("submit", (e) => {
   const namedata = classname.value;
   const nameid = classid.value;
   if (namedata === "" || namedata.length <= 3) {
-    classname.style.border = "1px solid red";
+    classname.classList.add("warning");
     return false;
   }
-
+  classname.classList.remove("warning");
   if (nameid === "" || nameid.length <= 5) {
-    classid.style.border = "1px solid red";
+    classid.classList.add("warning");
     return false;
   }
-
+  classid.classList.remove("warning");
   //   newdata.push({ className: namedata, classId: nameid, studentno: 0 });
   createClass(namedata, nameid, 0);
   classname.value = "";

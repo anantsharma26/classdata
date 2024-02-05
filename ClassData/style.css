@@ -64,3 +64,6 @@ table tbody button {
     padding: 6px;
     color: #fff;
 }
+input.warning{
+    border:1px solid red;
+}
