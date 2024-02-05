@@ -67,3 +67,24 @@ table tbody button {
 input.warning{
     border:1px solid red;
 }
+
+
+/* login style */
+
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #e0e9ff;
+    padding: 80px 50px;
+    border-radius: 10px;
+    width: 30%;
+}
+.login .form-group {
+    flex-flow: wrap;
+}
+.login input {
+    margin: 5px 0;
+}
