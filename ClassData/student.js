@@ -132,22 +132,6 @@ addstudentform.addEventListener("submit", (e) => {
   stMail.value = "";
   stPass.value = "";
   stclid.value = "";
-  const editstbtn = document.querySelectorAll(".steditbtn");
-  editstbtn.forEach((e) => {
-    e.addEventListener("click", (e) => {
-      const currentbtndattid = e.target.getAttribute("data-id");
-      const studentArray = JSON.parse(localStorage.getItem("studentData"));
-      const currentsteditbtn = studentArray.findIndex((e) => {
-        return e.stuId === currentbtndattid;
-      });
-      editstName.value = studentArray[currentsteditbtn].stuName;
-      editstId.value = studentArray[currentsteditbtn].stuId;
-      editstRollNo.value = studentArray[currentsteditbtn].stuRoll;
-      editstEmail.value = studentArray[currentsteditbtn].stuMail;
-      editstPswd.value = studentArray[currentsteditbtn].stuPass;
-      editstclId.value = studentArray[currentsteditbtn].stuclId;
-    });
-  });
 });
 
 function addStudentData() {
@@ -163,6 +147,23 @@ function addStudentData() {
         <td><button id="stedit" data-id="${data.stuId}" class="btn btn-info steditbtn">Edit</button></td>
         <td><button id="stdel" class="btn btn-danger stdelbtn">Delete</button></td></tr>`;
   }
+  const editstbtn = document.querySelectorAll(".steditbtn");
+  console.log("student:editstbtn", studentArray);
+  editstbtn.forEach((e) => {
+    e.addEventListener("click", (e) => {
+      const currentbtndattid = e.target.getAttribute("data-id");
+      const currentsteditbtn = studentArray.findIndex((e) => {
+        return e.stuId === currentbtndattid;
+      });
+      console.log("student", currentsteditbtn);
+      editstName.value = studentArray[currentsteditbtn].stuName;
+      editstId.value = studentArray[currentsteditbtn].stuId;
+      editstRollNo.value = studentArray[currentsteditbtn].stuRoll;
+      editstEmail.value = studentArray[currentsteditbtn].stuMail;
+      editstPswd.value = studentArray[currentsteditbtn].stuPass;
+      editstclId.value = studentArray[currentsteditbtn].stuclId;
+    });
+  });
 }
 
 sttable.addEventListener("click", (e) => {
