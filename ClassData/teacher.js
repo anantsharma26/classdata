@@ -26,21 +26,21 @@ function initteacherData() {
   if (!teacherArray) localStorage.setItem("teacherData", JSON.stringify([]));
 }
 
-const createTeacher = (
+const createteacher = (
   teacherName,
   teacherId,
   teacherMail,
   teacherPass,
-  teachclassId
+  teachclassID
 ) => {
   const teacherArray = JSON.parse(localStorage.getItem("teacherData"));
   if (teacherArray) {
     teacherArray.push({
-      tecname: teacherName,
-      tecid: teacherId,
-      tecmail: teacherMail,
-      tecpass: teacherPass,
-      tecclid: teachclassId,
+      teachersName: teacherName,
+      teachersId: teacherId,
+      teachersMail: teacherMail,
+      teachersPass: teacherPass,
+      teachersclId: teachclassID,
     });
     localStorage.setItem("teacherData", JSON.stringify(teacherArray));
   } else {
@@ -48,11 +48,11 @@ const createTeacher = (
       "teacherData",
       JSON.stringify([
         {
-          tecname: teacherName,
-          tecid: teacherId,
-          tecmail: teacherMail,
-          tecpass: teacherPass,
-          tecclid: teachclassId,
+          teachersName: teacherName,
+          teachersId: teacherId,
+          teachersMail: teacherMail,
+          teachersPass: teacherPass,
+          teachersclId: teachclassID,
         },
       ])
     );
@@ -70,7 +70,7 @@ addteacherform.addEventListener("submit", (e) => {
   const teacherId = teachId.value;
   const teacherMail = teachMail.value;
   const teacherPass = teachPass.value;
-  const teachclassId = teachclid.value;
+  const teachclassID = teachclid.value;
   if (teacherName === "" || teacherName.length <= 3) {
     teachName.classList.add("warning");
     return false;
@@ -96,24 +96,24 @@ addteacherform.addEventListener("submit", (e) => {
     return false;
   }
   teachPass.classList.remove("warning");
-  if (teachclassId === "" || teachclassId.length <= 4) {
+  if (teachclassID === "" || teachclassID.length <= 4) {
     teachclid.classList.add("warning");
     return false;
   }
   teachclid.classList.remove("warning");
   //   teacherData.push({
-  //     teachName: teacherName,
-  //     teachId: teacherId,
-  //     teachMail: teacherMail,
-  //     teachPass: teacherPass,
-  //     teachclId: teachclassId,
+  //     stuName: teacherName,
+  //     stuId: teacherId,
+  //     stuMail: teacherMail,
+  //     stuPass: teacherPass,
+  //     stuclId: stclassID,
   //   });
-  createTeacher(
+  createteacher(
     teacherName,
     teacherId,
     teacherMail,
     teacherPass,
-    teachclassId
+    teachclassID
   );
   addteacherData();
   const teacheditbtn = document.querySelector(".teacheditbtn");
@@ -122,35 +122,36 @@ addteacherform.addEventListener("submit", (e) => {
   teachMail.value = "";
   teachPass.value = "";
   teachclid.value = "";
-  const editteachbtn = document.querySelectorAll(".teacheditbtn");
-  editteachbtn.forEach((e) => {
-    e.addEventListener("click", (e) => {
-      const teachcurrentbtnid = e.target.getAttribute("data-id");
-      const teacherArray = JSON.parse(localStorage.getItem("teacherData"));
-      const currentteacheditbtn = teacherArray.findIndex((e) => {
-        return e.tecid === teachcurrentbtnid;
-      });
-      editteachName.value = teacherArray[currentteacheditbtn].tecname;
-      editteachId.value = teacherArray[currentteacheditbtn].tecid;
-      editteachEmail.value = teacherArray[currentteacheditbtn].tecmail;
-      editteachPswd.value = teacherArray[currentteacheditbtn].tecpass;
-      editteachclId.value = teacherArray[currentteacheditbtn].tecclid;
-    });
-  });
 });
 
 function addteacherData() {
   teachtable.innerHTML = "";
   const teacherArray = JSON.parse(localStorage.getItem("teacherData"));
   for (data of teacherArray) {
-    teachtable.innerHTML += `<tr><td>${data.tecname}</td>
-        <td>${data.tecid}</td>
-        <td>${data.tecmail}</td>
-        <td>${data.tecpass}</td>
-        <td>${data.tecclid}</td>
-        <td><button id="teachedit" data-id="${data.tecid}" class="btn btn-info teacheditbtn">Edit</button></td>
+    teachtable.innerHTML += `<tr><td>${data.teachersName}</td>
+        <td>${data.teachersId}</td>
+        <td>${data.teachersMail}</td>
+        <td>${data.teachersPass}</td>
+        <td>${data.teachersclId}</td>
+        <td><button id="teachedit" data-id="${data.teachersId}" class="btn btn-info teacheditbtn">Edit</button></td>
         <td><button id="teachdel" class="btn btn-danger teachdelbtn">Delete</button></td></tr>`;
   }
+  const editteachbtn = document.querySelectorAll(".teacheditbtn");
+  console.log("teacher:editteachbtn", teacherArray);
+  editteachbtn.forEach((e) => {
+    e.addEventListener("click", (e) => {
+      const currentbtnattid = e.target.getAttribute("data-id");
+      const currentteacheditbtn = teacherArray.findIndex((e) => {
+        return e.teachersId === currentbtnattid;
+      });
+      console.log("teacher", currentteacheditbtn);
+      editteachName.value = teacherArray[currentteacheditbtn].teachersName;
+      editteachId.value = teacherArray[currentteacheditbtn].teachersId;
+      editteachEmail.value = teacherArray[currentteacheditbtn].teachersMail;
+      editteachPswd.value = teacherArray[currentteacheditbtn].teachersPass;
+      editteachclId.value = teacherArray[currentteacheditbtn].teachersclId;
+    });
+  });
 }
 
 teachtable.addEventListener("click", (e) => {
@@ -165,14 +166,14 @@ teachtable.addEventListener("click", (e) => {
 edtiteachform.addEventListener("submit", (e) => {
   e.preventDefault();
   const teacherArray = JSON.parse(localStorage.getItem("teacherData"));
-  const Tchangingobj = teacherArray.findIndex((e) => {
-    return e.tecclid === editteachclId.value;
+  const changingobjs = teacherArray.findIndex((e) => {
+    return e.teachersclId === editteachclId.value;
   });
-  teacherArray[Tchangingobj].tecname = editteachName.value;
-  teacherArray[Tchangingobj].tecid = editteachId.value;
-  teacherArray[Tchangingobj].tecmail = editteachEmail.value;
-  teacherArray[Tchangingobj].tecpass = editteachPswd.value;
-  teacherArray[Tchangingobj].tecclid = editteachclId.value;
+  teacherArray[changingobjs].teachersName = editteachName.value;
+  teacherArray[changingobjs].teachersId = editteachId.value;
+  teacherArray[changingobjs].teachersMail = editteachEmail.value;
+  teacherArray[changingobjs].teachersPass = editteachPswd.value;
+  teacherArray[changingobjs].teachersclId = editteachclId.value;
   localStorage.setItem("teacherData", JSON.stringify(teacherArray));
   addteacherData();
 });
