@@ -6,8 +6,11 @@ logoutButton.addEventListener("click", (e) => {
   localStorage.removeItem("loggedInUser");
   window.location.href = "C:/Users/dell/Downloads/practical/classdata/ClassData/login.html";
 });
-// TODO Add check to redirect user to login page if isLoggedIn is not found in localStorage
-// TODO Add user email to the top of page if isLoggedIn
+
+const logInUser = localStorage.getItem("loggedInUser");
+if(!logInUser){
+  window.location.href = "C:/Users/dell/Downloads/practical/classdata/ClassData/login.html";
+}
 loadUserDetails();
 
 function loadUserDetails() {

@@ -14,6 +14,7 @@
     <script src="./custom.js" defer></script>
     <script src="./student.js" defer></script>
     <script src="./main.js" defer></script>
+    <script src="./teacher.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -28,6 +29,7 @@
               <ul class="funcbtn">
                 <li><a href="" class="addClassbtn">Add Class</a></li>
                 <li><a href="#" class="addstudentbtn">Add Student</a></li>
+                <li><a href="#" class="addteacherbtn">Add Teacher</a></li>
                 <li><a href="#" id="logoutBtn" class="logoutbtn">Logout</a></li>
               </ul>
             </div>
@@ -95,6 +97,43 @@
             </div>
           </form>
         </div>
+        <div class="addteacherform">
+          <form class="addnewteacher">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Name"
+                id="teachname"
+                class="form-control"
+              />
+              <input
+                type="number"
+                placeholder="Id"
+                id="teachid"
+                class="form-control"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                id="teachmail"
+                class="form-control"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                id="teachpswd"
+                class="form-control"
+              />
+              <input
+                type="text"
+                placeholder="ClassId"
+                id="teachclassid"
+                class="form-control"
+              />
+              <input type="submit" value="add" class="btn btn-info" />
+            </div>
+          </form>
+        </div>
         <div class="main_table">
           <h3>class Table</h3>
           <table class="table">
@@ -115,6 +154,21 @@
               <td>Name</td>
               <td>Id</td>
               <td>Roll No</td>
+              <td>Email</td>
+              <td>Password</td>
+              <td>ClassId</td>
+              <td style="width: 100px"></td>
+              <td style="width: 100px"></td>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="teacher_table">
+          <h3>Teacher Table</h3>
+          <table class="table">
+            <thead>
+              <td>Name</td>
+              <td>Id</td>
               <td>Email</td>
               <td>Password</td>
               <td>ClassId</td>
@@ -166,6 +220,45 @@
                 disabled
               />
               <input type="submit" value="editstudent" class="btn btn-info" />
+            </div>
+          </form>
+        </div>
+        <div class="editteacherform">
+          <h3 class="py-3">Edit Form</h3>
+          <form class="editteacher">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Name"
+                id="editteachname"
+                class="form-control"
+              />
+              <input
+                type="number"
+                placeholder="Id"
+                id="editteachid"
+                class="form-control"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                id="editteachmail"
+                class="form-control"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                id="editteachpswd"
+                class="form-control"
+              />
+              <input
+                type="text"
+                placeholder="ClassId"
+                id="editteachclassid"
+                class="form-control"
+                disabled
+              />
+              <input type="submit" value="editteacher" class="btn btn-info" />
             </div>
           </form>
         </div>

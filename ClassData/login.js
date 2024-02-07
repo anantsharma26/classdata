@@ -14,21 +14,21 @@ function initLogin() {
 initLogin();
 loginform.addEventListener("submit", (e) => {
   e.preventDefault();
-  //TODO Add check to see if the entered email and password are matching the StudentData in localStorage
   const logInId = loginId.value;
   const logInPswd = loginPswd.value;
   const localstuData = JSON.parse(localStorage.getItem("studentData"));
   let obj = localstuData.find(o => o.stuMail === logInId);
-  if(logInId != obj.stuMail){
+  if(!obj){
     alert("wrong email");
+    return 0;
   }
   if(logInPswd != obj.stuPass){
     alert("wrong Password");
+    return 0;
   } 
  else{  
   localStorage.setItem(
     "loggedInUser",
-    //TODO replace this data with curent logged in user data
     JSON.stringify({
       stuName: obj.stuName,
       stuId: obj.stuId,
