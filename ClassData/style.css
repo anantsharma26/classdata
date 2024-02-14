@@ -50,13 +50,14 @@ input.btn.btn-info {
 }
 .main_table,.student_table,.teacher_table {
     margin: 20px 0;
-    background: linear-gradient(45deg, #51a9bb, #0dcaf09e);
-    padding: 50px 25px;
 }
+
 .main_table h3,.student_table h3,.teacher_table h3 {
     font-size: 22px;
     text-transform: capitalize;
     color: #fff;
+    background: linear-gradient(45deg, #51a9bb, #0dcaf09e);
+    padding: 15px;
 }
 
 table tbody button {
@@ -93,4 +94,129 @@ input.warning{
 }
 body {
     background: #f5f5f5;
+}
+
+
+
+
+/* dashboard */
+
+
+.dashboard {
+    background: #ebfffb;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.dashboard .row {
+    height: 100%;
+}
+ul.user_detail li h3 {
+    font-size: 22px;
+}
+.userinfobox {
+    height: 100%;
+    background: #2e2e2e;
+    padding: 50px 25px;
+}
+
+ul.user_detail li {
+    list-style: none;
+}
+
+ul.user_detail li h3, ul.user_detail li h6 {
+    color: #fff;
+}
+ul.user_detail {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+ul.user_detail li img {
+    max-width: 50px;
+    border-radius: 50%;
+}
+ul.infotab li {
+    background: #89b9b0;
+    color: #000;
+    list-style: none;
+    padding: 8px 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+ul.infotab {
+    padding: 0;
+    margin: 80px 0 0;
+}
+
+.userdata tr {
+    border: 1px solid #efefef;
+}
+.userprofileimg img {
+    max-width: 200px;
+}
+.userdata {
+    margin-top: 50px;
+}
+.fullwidth .row {
+    width: 100%;
+}
+.studentview_table {
+    margin-top: 30px;
+}
+.infotab li{
+    cursor: pointer;
+}
+.student_list{
+    display: none;
+    transition: .5s ease;
+}
+.student_list.show{
+    display: block;
+    transition: .5s ease;
+}
+
+
+.student_table.student tr td:nth-child(7), .student_table.student tr td:nth-child(8) {
+    display: none;
+}
+.teacherslist.teacher a.addteacherbtn, .teacherslist.teacher tr td:nth-child(7), .teacherslist.teacher tr td:nth-child(6) {
+    display: none;
+}
+.student_table, .Classhead, .teacherHead {
+    position: relative;
+}
+a.addstudentbtn,.addClassbtn, .addteacherbtn {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 25px;
+    text-transform: uppercase;
+}
+
+
+.classData,.teacherslist{
+  display: none;  
+}
+.classData.clickedvmro, .teacherslist.clickedvmro{
+    display: block;
+}
+
+
+ul.infotab li+li {
+    margin-top: 10px;
+}
+
+.student_list .row {
+    width: 100%;
+}
+
+.userdata.hide table {
+    display: none;
 }
